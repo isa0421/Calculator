@@ -20,14 +20,6 @@ namespace Calculator
         float firstNumber, secondNumber;
         int operators = -1;
 
-        private void button1_Click(object sender, EventArgs e) //清除按鍵
-        {
-            txtNumber.Text = "0";
-            firstNumber = 0f;
-            secondNumber = 0f;
-            operators = -1;
-        }
-
         private void btnOne_Click(object sender, EventArgs e)
         {
             Add_Number("1");
@@ -137,6 +129,27 @@ namespace Calculator
             firstNumber = 0f;
             secondNumber = 0f;
             operators = -1;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtNumber.Text = "0";
+            firstNumber = 0f;
+            secondNumber = 0f;
+            operators = -1;
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            string number = txtNumber.Text;
+            int length = number.Length;
+            txtNumber.Text = number.Substring(0, length - 1);
+        }
+
+        private void btnPercentage_Click(object sender, EventArgs e)
+        {
+            string number = txtNumber.Text;
+            string.Format("{0:P2}", number);
         }
 
         private void btnDot_Click(object sender, EventArgs e)
