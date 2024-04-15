@@ -151,10 +151,9 @@ namespace Calculator
         private void btnPercentage_Click(object sender, EventArgs e) //百分比
         {
             float finalResults = 0f;
-            secondNumber = Convert.ToSingle(txtNumber.Text);
             string number = txtNumber.Text;
-            string.Format("{0:P2}", number);
-            txtNumber.Text = string.Format("{0:0.##########}", finalResults);
+            //string.Format("{0:P2}", number);
+            txtNumber.Text = string.Format("{0:P2}", finalResults);
         }
 
         private void btnDot_Click(object sender, EventArgs e) //小數點
