@@ -131,7 +131,7 @@ namespace Calculator
             operators = -1;
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
+        private void btnClear_Click(object sender, EventArgs e) //清除鍵
         {
             txtNumber.Text = "0";
             firstNumber = 0f;
@@ -139,20 +139,25 @@ namespace Calculator
             operators = -1;
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e) //倒退鍵
         {
             string number = txtNumber.Text;
             int length = number.Length;
             txtNumber.Text = number.Substring(0, length - 1);
+            if (txtNumber.Text == "")
+                txtNumber.Text = "0";
         }
 
-        private void btnPercentage_Click(object sender, EventArgs e)
+        private void btnPercentage_Click(object sender, EventArgs e) //百分比
         {
+            float finalResults = 0f;
+            secondNumber = Convert.ToSingle(txtNumber.Text);
             string number = txtNumber.Text;
             string.Format("{0:P2}", number);
+            txtNumber.Text = string.Format("{0:0.##########}", finalResults);
         }
 
-        private void btnDot_Click(object sender, EventArgs e)
+        private void btnDot_Click(object sender, EventArgs e) //小數點
         {
             if (txtNumber.Text.IndexOf(".") == -1)
                 txtNumber.Text = txtNumber.Text + ".";
